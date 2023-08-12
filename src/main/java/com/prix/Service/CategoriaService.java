@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 
 @Service
-public class CategoriaService extends CRUDImpl<Categoria, Integer> {
+public class CategoriaService extends CRUDImpl<Categoria, String> {
 
     private final ICategoriaRepo repo;
 
@@ -17,7 +17,7 @@ public class CategoriaService extends CRUDImpl<Categoria, Integer> {
     }
 
     @Override
-    protected IGenericRepo<Categoria, Integer> getRepo() {
+    protected IGenericRepo<Categoria, String> getRepo() {
         return repo;
     }
 

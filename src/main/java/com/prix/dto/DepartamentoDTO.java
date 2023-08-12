@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 public class DepartamentoDTO {
 
-    private Integer idDepartamento;
+    private String idDepartamento;
 
     private String nombre;
 

@@ -6,7 +6,7 @@ import com.prix.repo.IMunicipioRepo;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MunicipioService extends CRUDImpl<Municipio, Integer> {
+public class MunicipioService extends CRUDImpl<Municipio, String> {
 
     private final IMunicipioRepo repo;
 
@@ -15,7 +15,7 @@ public class MunicipioService extends CRUDImpl<Municipio, Integer> {
     }
 
     @Override
-    protected IGenericRepo<Municipio, Integer> getRepo() {
+    protected IGenericRepo<Municipio, String> getRepo() {
         return repo;
     }
 }

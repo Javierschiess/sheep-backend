@@ -6,7 +6,7 @@ import com.prix.repo.IGenericRepo;
 import org.springframework.stereotype.Service;
 
 @Service
-public class DepartamentoService extends CRUDImpl<Departamento, Integer> {
+public class DepartamentoService extends CRUDImpl<Departamento, String> {
 
     private final IDepartamentoRepo repo;
 
@@ -15,7 +15,7 @@ public class DepartamentoService extends CRUDImpl<Departamento, Integer> {
     }
 
     @Override
-    protected IGenericRepo<Departamento, Integer> getRepo() {
+    protected IGenericRepo<Departamento, String> getRepo() {
         return repo;
     }
 }

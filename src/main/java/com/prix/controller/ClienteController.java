@@ -32,7 +32,7 @@ public class ClienteController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ClienteDTO> listarPorId(@PathVariable("id") Integer id)throws Exception{
+    public ResponseEntity<ClienteDTO> listarPorId(@PathVariable("id") String id)throws Exception{
         Cliente cliente = service.listarPorId(id);
 
         if (id == null){

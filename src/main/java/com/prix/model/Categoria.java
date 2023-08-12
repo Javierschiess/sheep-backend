@@ -3,6 +3,7 @@ package com.prix.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.UuidGenerator;
 
 import java.time.LocalDateTime;
 
@@ -13,9 +14,9 @@ import java.time.LocalDateTime;
 public class Categoria {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @UuidGenerator
     @Column(name = "id_categoria")
-    private Integer idCategoria;
+    private String idCategoria;
 
     @Column(name = "nombre")
     private String nombre;

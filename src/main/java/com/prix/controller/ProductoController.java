@@ -80,7 +80,7 @@ public class ProductoController {
 
     @GetMapping ("/buscarPorMunicipio")
     public ResponseEntity<List<Producto>> buscar (
-            @RequestParam (value = "idMunicipio", required = true) Integer idMunicipio,
+            @RequestParam (value = "idMunicipio", required = true) String idMunicipio,
             @RequestParam(value = "nombre", required = true)String nombre)throws Exception{
         List<Producto> lista = service.listarPorMunicipio(idMunicipio, nombre);
 

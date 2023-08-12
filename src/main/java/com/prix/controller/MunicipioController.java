@@ -32,7 +32,7 @@ public class MunicipioController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<MunicipioDTO> listarPorId(@PathVariable Integer id)throws Exception{
+    public ResponseEntity<MunicipioDTO> listarPorId(@PathVariable String id)throws Exception{
         Municipio municipio = service.listarPorId(id);
 
         if (municipio == null){

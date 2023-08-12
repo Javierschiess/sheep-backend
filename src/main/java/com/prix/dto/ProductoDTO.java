@@ -27,6 +27,4 @@ public class ProductoDTO {
 
     private EstadoDTO estado;
 
-
-
 }

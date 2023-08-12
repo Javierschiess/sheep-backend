@@ -31,7 +31,7 @@ public class DepartamentoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<DepartamentoDTO> listarPorId(@PathVariable Integer id)throws Exception{
+    public ResponseEntity<DepartamentoDTO> listarPorId(@PathVariable String id)throws Exception{
         Departamento departamento = service.listarPorId(id);
 
         if (departamento == null){

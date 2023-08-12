@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.UuidGenerator;
 
 @Entity
 @Setter
@@ -13,9 +14,9 @@ import lombok.ToString;
 public class Municipio {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @UuidGenerator
     @Column(name = "id_municipio")
-    private Integer idMunicipio;
+    private String idMunicipio;
 
     private String nombre;
 

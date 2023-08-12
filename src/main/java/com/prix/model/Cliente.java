@@ -3,6 +3,7 @@ package com.prix.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.UuidGenerator;
 
 import java.time.LocalDateTime;
 
@@ -13,9 +14,9 @@ import java.time.LocalDateTime;
 public class Cliente {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @UuidGenerator
     @Column(name = "id_cliente")
-    private Integer idCliente;
+    private String idCliente;
 
     private String nombres;
 
@@ -26,8 +27,6 @@ public class Cliente {
     private Integer telefono;
 
     private LocalDateTime fechaRegistro;
-
-
 
     @ManyToOne
     @JoinColumn(name = "id_municipio", nullable = false, foreignKey = @ForeignKey(name = "FK_cliente_municipio"))

@@ -2,6 +2,6 @@ package com.prix.repo;
 
 import com.prix.model.Municipio;
 
-public interface IMunicipioRepo extends IGenericRepo<Municipio, Integer> {
+public interface IMunicipioRepo extends IGenericRepo<Municipio, String> {
 
 }

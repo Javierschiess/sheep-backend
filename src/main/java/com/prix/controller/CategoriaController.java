@@ -34,7 +34,7 @@ public class CategoriaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<CategoriaDTO> listarPorId(@PathVariable("id") Integer id)throws Exception{
+    public ResponseEntity<CategoriaDTO> listarPorId(@PathVariable("id") String id)throws Exception{
         Categoria categoria = service.listarPorId(id);
 
         if (id == null){

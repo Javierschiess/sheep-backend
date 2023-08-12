@@ -11,6 +11,4 @@ public class EstadoDTO {
 
     private String nombre;
 
-    private String descripcion;
-
 }

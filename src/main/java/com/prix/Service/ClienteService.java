@@ -9,12 +9,12 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 
 @Service
-public class ClienteService extends CRUDImpl<Cliente, Integer> {
+public class ClienteService extends CRUDImpl<Cliente, String> {
 
     @Autowired
     private IClienteRepo repo;
     @Override
-    protected IGenericRepo<Cliente, Integer> getRepo() {
+    protected IGenericRepo<Cliente, String> getRepo() {
         return repo;
     }
 

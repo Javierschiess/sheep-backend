@@ -42,7 +42,7 @@ public class ProductoService extends CRUDImpl<Producto, String> {
         return repo.findAllByIdProducto(producto);
     }
 
-    public List<Producto> listarPorMunicipio(Integer idMunicipio, String nombre)throws Exception{
+    public List<Producto> listarPorMunicipio(String idMunicipio, String nombre)throws Exception{
         var test = repo.findAll();
         var test2 = test.stream()
                 .filter(producto -> producto.getMunicipio() != null)

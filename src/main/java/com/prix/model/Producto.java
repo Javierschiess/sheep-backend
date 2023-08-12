@@ -42,6 +42,10 @@ public class Producto {
     @JoinColumn(name = "id_municipio", foreignKey = @ForeignKey(name = "FK_producto_municipio"))
     private Municipio municipio;
 
+    @ManyToOne
+    @JoinColumn(name = "id_estado", foreignKey = @ForeignKey(name = "FK_producto_estado"))
+    private Estado estado;
+
 
 
 }
