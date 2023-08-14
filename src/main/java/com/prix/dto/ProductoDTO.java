@@ -21,10 +21,12 @@ public class ProductoDTO {
 
     private LocalDateTime fechaRegistro;
 
-    private CategoriaDTO categoria;
+    private String categoria;
 
     private ComercioDTO comercio;
 
-    private EstadoDTO estado;
+    private String estado;
+
+    private Integer rating;
 
 }

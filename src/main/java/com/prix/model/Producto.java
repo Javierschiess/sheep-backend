@@ -30,9 +30,9 @@ public class Producto {
 
     private LocalDateTime fechaRegistro;
 
-    @ManyToOne
-    @JoinColumn(name = "id_categoria", foreignKey = @ForeignKey(name = "FK_producto_categoria"))
-    private Categoria categoria;
+    private String categoria;
+
+    private Integer rating;
 
     @ManyToOne
     @JoinColumn(name = "id_comercio",  foreignKey = @ForeignKey(name = "FK_producto_comerio"))
@@ -42,9 +42,7 @@ public class Producto {
     @JoinColumn(name = "id_municipio", foreignKey = @ForeignKey(name = "FK_producto_municipio"))
     private Municipio municipio;
 
-    @ManyToOne
-    @JoinColumn(name = "id_estado", foreignKey = @ForeignKey(name = "FK_producto_estado"))
-    private Estado estado;
+    private String estado;
 
 
 

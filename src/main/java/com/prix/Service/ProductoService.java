@@ -1,12 +1,9 @@
 package com.prix.Service;
 
-import com.prix.model.Cliente;
-import com.prix.model.Municipio;
 import com.prix.model.Producto;
 import com.prix.repo.IClienteRepo;
 import com.prix.repo.IGenericRepo;
 import com.prix.repo.IProductoRepo;
-import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -30,8 +27,7 @@ public class ProductoService extends CRUDImpl<Producto, String> {
     }
 
     public Producto registrarProducto(Producto producto) throws Exception {
-        /*Optional<Producto> p = repo.findById(producto.getComercio().getIdComercio());
-        producto.setMunicipio(p.get().getComercio().getMunicipio());*/
+        System.out.println(producto);
 
         producto.setFechaRegistro(LocalDateTime.now());
 
@@ -56,11 +52,5 @@ public class ProductoService extends CRUDImpl<Producto, String> {
     /*public List<Producto> listarPorComercio(Integer id)throws Exception{
         return repo.findAllByComercioIdComercio(id);
     }*/
-
-
-
-
-
-
 
 }

@@ -64,6 +64,11 @@ public class ProductoController {
             throw new ModelNotFoundException("ID NO ENCONTRADO " + dto.getIdProducto());
         }
 
+        producto.setNombre(dto.getNombre());
+        producto.setDescripcion(dto.getDescripcion());
+        producto.setFoto(dto.getFoto());
+        producto.setPrecio(dto.getPrecio());
+
         Producto product = service.modificar(producto);
         return new ResponseEntity<>(dto, HttpStatus.OK);
     }
