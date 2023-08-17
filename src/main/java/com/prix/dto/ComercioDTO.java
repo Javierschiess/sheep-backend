@@ -13,7 +13,13 @@ public class ComercioDTO {
 
     private String direccion;
 
-    private CategoriaDTO categoria;
+    private String nit;
 
-    private MunicipioDTO municipio;
+    private String email;
+
+    private String password;
+
+    //private CategoriaDTO categoria;
+
+    //private MunicipioDTO municipio;
 }

@@ -22,16 +22,22 @@ public class Comercio {
 
     private String direccion;
 
+    private String nit;
+
+    private String email;
+
+    private String password;
+
     private LocalDateTime fechaRegistro;
 
-    @ManyToOne
-    @JoinColumn(name = "id_categoria", nullable = false, foreignKey = @ForeignKey(name = "FK_comercio_categoria"))
-    private Categoria categoria;
+    private String categoria;
 
+
+/*
     @ManyToOne
     @JoinColumn(name = "id_municipio", nullable = false, foreignKey = @ForeignKey(name = "FK_comercio_municipio"))
     private Municipio municipio;
-
+*/
 
 
 }

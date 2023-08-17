@@ -7,6 +7,7 @@ import com.prix.exception.ModelNotFoundException;
 import com.prix.model.Cliente;
 import com.prix.model.Municipio;
 import com.prix.model.Producto;
+import jakarta.annotation.security.RolesAllowed;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
