@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 public class Cliente {
 
     @Id
-    @UuidGenerator
+    //@UuidGenerator
     @Column(name = "id_cliente")
     private String idCliente;
 
@@ -27,6 +27,8 @@ public class Cliente {
     private Integer telefono;
 
     private LocalDateTime fechaRegistro;
+
+    private String password;
 
     /*
     @ManyToOne

@@ -19,4 +19,6 @@ public class ClienteDTO {
 
     private MunicipioDTO municipio;
 
+    private String password;
+
 }

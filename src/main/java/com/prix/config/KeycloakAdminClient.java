@@ -37,6 +37,7 @@ public class KeycloakAdminClient {
     @Bean
     public RealmResource keycloakAdminRealmResource() {
         return keycloak().realm(keycloakRealm);
+
     }
 
 
