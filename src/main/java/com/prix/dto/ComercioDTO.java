@@ -17,6 +17,8 @@ public class ComercioDTO {
 
     private String email;
 
+    private String username;
+
     private String password;
 
     //private CategoriaDTO categoria;

@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 public class Comercio {
 
     @Id
-    @UuidGenerator
+    //@UuidGenerator
     @Column(name = "id_comercio")
     private String idComercio;
 
@@ -25,6 +25,8 @@ public class Comercio {
     private String nit;
 
     private String email;
+
+    private String username;
 
     private String password;
 

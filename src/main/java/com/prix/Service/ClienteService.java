@@ -3,7 +3,6 @@ package com.prix.Service;
 import com.prix.model.Cliente;
 import com.prix.repo.IClienteRepo;
 import com.prix.repo.IGenericRepo;
-import org.aspectj.weaver.ast.Var;
 import org.keycloak.admin.client.CreatedResponseUtil;
 import org.keycloak.admin.client.resource.RealmResource;
 import org.keycloak.representations.idm.CredentialRepresentation;
@@ -29,7 +28,6 @@ public class ClienteService extends CRUDImpl<Cliente, String> {
     protected IGenericRepo<Cliente, String> getRepo() {
         return repo;
     }
-
     public Cliente registrarCliente(Cliente cliente)throws Exception{
         UserRepresentation userRepresentacion = new UserRepresentation();
         CredentialRepresentation credencial = new CredentialRepresentation();
