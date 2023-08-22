@@ -3,14 +3,17 @@ package com.prix.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.annotations.UuidGenerator;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Setter
 @Getter
 @Table(name = "comercio")
+@ToString
 public class Comercio {
 
     @Id
@@ -33,6 +36,9 @@ public class Comercio {
     private LocalDateTime fechaRegistro;
 
     private String categoria;
+
+    /*@OneToMany(mappedBy = "comercio", cascade = {CascadeType.ALL}, orphanRemoval = true)
+    private List<Producto> producto;*/
 
 
 /*

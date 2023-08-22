@@ -34,6 +34,7 @@ public class ComercioService extends CRUDImpl<Comercio, String> {
     }
 
     public Comercio registrarComercio(Comercio comercio)throws Exception{
+        System.out.println(comercio);
         UserRepresentation userRepresentation = new UserRepresentation();
         CredentialRepresentation credencial = new CredentialRepresentation();
 

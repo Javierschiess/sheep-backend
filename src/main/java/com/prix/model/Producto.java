@@ -34,6 +34,8 @@ public class Producto {
 
     private Integer rating;
 
+    private String idUser;
+
     @ManyToOne
     @JoinColumn(name = "id_comercio",  foreignKey = @ForeignKey(name = "FK_producto_comerio"))
     private Comercio comercio;

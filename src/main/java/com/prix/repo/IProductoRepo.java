@@ -10,6 +10,6 @@ public interface IProductoRepo extends IGenericRepo<Producto, String> {
 
    List<Producto> findAllByMunicipioIdMunicipioAndNombreContainingIgnoreCase(String idMunicipio, String nombre);
 
-   //List<Producto> findAllByComercioIdComercio(Integer id);
+   List<Producto> findAllByComercioIdComercio(String idComercio);
 
 }

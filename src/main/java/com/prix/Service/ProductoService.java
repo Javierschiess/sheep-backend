@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ProductoService extends CRUDImpl<Producto, String> {
@@ -27,10 +26,7 @@ public class ProductoService extends CRUDImpl<Producto, String> {
     }
 
     public Producto registrarProducto(Producto producto) throws Exception {
-        System.out.println(producto);
-
         producto.setFechaRegistro(LocalDateTime.now());
-
         return repo.save(producto);
     }
 
@@ -49,8 +45,8 @@ public class ProductoService extends CRUDImpl<Producto, String> {
 
     }
 
-    /*public List<Producto> listarPorComercio(Integer id)throws Exception{
-        return repo.findAllByComercioIdComercio(id);
-    }*/
+    public List<Producto> listarPorComercio(String idComercio)throws Exception{
+        return repo.findAllByComercioIdComercio(idComercio);
+    }
 
 }

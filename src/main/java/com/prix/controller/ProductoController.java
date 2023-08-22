@@ -93,13 +93,13 @@ public class ProductoController {
         return new ResponseEntity<>(lista, HttpStatus.OK);
     }
 
-   /* @GetMapping("/buscarPorComercio")
+   @GetMapping("/buscarPorComercio")
     public ResponseEntity<List<Producto>> buscarPorComercio(
-             @RequestParam (value = "idComercio", required = true) Integer idComercio) throws Exception{
+             @RequestParam (value = "idComercio", required = true) String idComercio) throws Exception{
         List<Producto> lista = service.listarPorComercio(idComercio);
 
         return new ResponseEntity<>(lista, HttpStatus.OK);
-    }*/
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar( @PathVariable String id)throws Exception{
