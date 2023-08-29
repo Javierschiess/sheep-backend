@@ -2,7 +2,6 @@ package com.prix.dto;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.scheduling.support.SimpleTriggerContext;
 
 import java.time.LocalDateTime;
 
@@ -30,6 +29,6 @@ public class ProductoDTO {
 
     private Integer rating;
 
-    private String idUser;
+    private MunicipioDTO municipio;
 
 }

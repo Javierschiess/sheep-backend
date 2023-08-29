@@ -1,10 +1,14 @@
 package com.prix.dto;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Setter
 @Getter
+@ToString
 public class ComercioDTO {
 
     private String idComercio;
@@ -21,7 +25,6 @@ public class ComercioDTO {
 
     private String password;
 
-    //private CategoriaDTO categoria;
+    private MunicipioDTO municipio;
 
-    //private MunicipioDTO municipio;
 }

@@ -8,6 +8,7 @@ import org.keycloak.admin.client.resource.RealmResource;
 import org.keycloak.representations.idm.CredentialRepresentation;
 import org.keycloak.representations.idm.UserRepresentation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -23,6 +24,9 @@ public class ClienteService extends CRUDImpl<Cliente, String> {
     @Autowired
     private RealmResource realmResource;
 
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
     private List<CredentialRepresentation> credencial;
     @Override
     protected IGenericRepo<Cliente, String> getRepo() {
@@ -31,6 +35,7 @@ public class ClienteService extends CRUDImpl<Cliente, String> {
     public Cliente registrarCliente(Cliente cliente)throws Exception{
         UserRepresentation userRepresentacion = new UserRepresentation();
         CredentialRepresentation credencial = new CredentialRepresentation();
+
 
         userRepresentacion.setUsername(cliente.getEmail());
         userRepresentacion.setEnabled(true);
@@ -45,6 +50,9 @@ public class ClienteService extends CRUDImpl<Cliente, String> {
 
         cliente.setIdCliente(idUser);
         cliente.setFechaRegistro(LocalDateTime.now());
+
+        String pass = this.passwordEncoder.encode(cliente.getPassword());
+        cliente.setPassword(pass);
 
         return repo.save(cliente);
 

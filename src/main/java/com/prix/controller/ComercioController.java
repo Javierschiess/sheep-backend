@@ -44,8 +44,9 @@ public class ComercioController {
         return new ResponseEntity<>(dto, HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping()
     public ResponseEntity<ComercioDTO> registrar (@RequestBody ComercioDTO dto)throws Exception{
+        dto.setMunicipio(dto.getMunicipio());
         Comercio comercio = mapper.map(dto, Comercio.class);
         Comercio com = service.registrarComercio(comercio);
         return new ResponseEntity<>(dto, HttpStatus.CREATED);

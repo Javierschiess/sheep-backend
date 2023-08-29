@@ -34,18 +34,12 @@ public class Producto {
 
     private Integer rating;
 
-    private String idUser;
+    private String municipio;
 
     @ManyToOne
     @JoinColumn(name = "id_comercio",  foreignKey = @ForeignKey(name = "FK_producto_comerio"))
     private Comercio comercio;
 
-    @ManyToOne
-    @JoinColumn(name = "id_municipio", foreignKey = @ForeignKey(name = "FK_producto_municipio"))
-    private Municipio municipio;
-
     private String estado;
-
-
 
 }

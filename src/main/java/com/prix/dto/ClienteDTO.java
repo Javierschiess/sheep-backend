@@ -17,8 +17,8 @@ public class ClienteDTO {
 
     private String telefono;
 
-    private MunicipioDTO municipio;
-
     private String password;
+
+    private MunicipioDTO municipio;
 
 }

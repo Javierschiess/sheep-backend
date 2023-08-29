@@ -7,6 +7,7 @@ import com.prix.exception.ModelNotFoundException;
 import com.prix.model.Cliente;
 import com.prix.model.Municipio;
 import com.prix.model.Producto;
+import com.prix.repo.IClienteRepo;
 import jakarta.annotation.security.RolesAllowed;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
@@ -21,6 +22,7 @@ import java.util.stream.Collectors;
 public class ProductoController {
 
     private final ProductoService service;
+
 
     private final ModelMapper mapper;
 
@@ -69,6 +71,7 @@ public class ProductoController {
         producto.setDescripcion(dto.getDescripcion());
         producto.setFoto(dto.getFoto());
         producto.setPrecio(dto.getPrecio());
+        producto.setCategoria(dto.getCategoria());
 
         Producto product = service.modificar(producto);
         return new ResponseEntity<>(dto, HttpStatus.OK);
@@ -84,7 +87,7 @@ public class ProductoController {
         return new ResponseEntity<>(lista, HttpStatus.OK);
     }
 
-    @GetMapping ("/buscarPorMunicipio")
+   /* @GetMapping ("/buscarPorMunicipio")
     public ResponseEntity<List<Producto>> buscar (
             @RequestParam (value = "idMunicipio", required = true) String idMunicipio,
             @RequestParam(value = "nombre", required = true)String nombre)throws Exception{
@@ -93,13 +96,25 @@ public class ProductoController {
         return new ResponseEntity<>(lista, HttpStatus.OK);
     }
 
-   @GetMapping("/buscarPorComercio")
+    */
+
+ @GetMapping("/buscarPorComercio")
     public ResponseEntity<List<Producto>> buscarPorComercio(
              @RequestParam (value = "idComercio", required = true) String idComercio) throws Exception{
         List<Producto> lista = service.listarPorComercio(idComercio);
 
         return new ResponseEntity<>(lista, HttpStatus.OK);
     }
+
+    @GetMapping("/buscarPorMunicipio")
+    public ResponseEntity<List<Producto>> buscarPorMunicipio(
+            @RequestParam (value = "idCliente", required = true) String idCliente,
+            @RequestParam (value = "idMunicipio", required = false) String idMunicipio) throws Exception{
+     List<Producto> lista = service.listarPorMunicipio(idCliente, idMunicipio);
+     return new ResponseEntity<>(lista, HttpStatus.OK);
+    }
+
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar( @PathVariable String id)throws Exception{

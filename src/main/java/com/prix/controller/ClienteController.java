@@ -4,6 +4,7 @@ import com.prix.Service.ClienteService;
 import com.prix.dto.ClienteDTO;
 import com.prix.exception.ModelNotFoundException;
 import com.prix.model.Cliente;
+import jakarta.annotation.security.PermitAll;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,12 +39,11 @@ public class ClienteController {
         if (id == null){
             throw new ModelNotFoundException("ID NO ENCONTRADO" + id);
         }
-
         ClienteDTO dto = mapper.map(cliente, ClienteDTO.class);
         return new ResponseEntity<>(dto, HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping("/registrar")
     public ResponseEntity<ClienteDTO> registrar(@RequestBody ClienteDTO dto)throws Exception{
         Cliente cliente = mapper.map(dto, Cliente.class);
         Cliente client = service.registrarCliente(cliente);

@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.UuidGenerator;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -37,15 +38,6 @@ public class Comercio {
 
     private String categoria;
 
-    /*@OneToMany(mappedBy = "comercio", cascade = {CascadeType.ALL}, orphanRemoval = true)
-    private List<Producto> producto;*/
-
-
-/*
-    @ManyToOne
-    @JoinColumn(name = "id_municipio", nullable = false, foreignKey = @ForeignKey(name = "FK_comercio_municipio"))
-    private Municipio municipio;
-*/
-
+    private String municipio;
 
 }
