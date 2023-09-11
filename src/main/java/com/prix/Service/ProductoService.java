@@ -74,9 +74,14 @@ public class ProductoService extends CRUDImpl<Producto, String> {
         }else {
             return repo.findAllByMunicipio(idMunicipio);
         }
+    }
 
+    public long getTotalProduct()throws Exception{
+       return repo.getAllProducto();
+    }
 
-
+    public long productos24()throws Exception{
+       return repo.productos24();
     }
 
 

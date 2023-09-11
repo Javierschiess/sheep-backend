@@ -29,14 +29,16 @@ public class Cliente {
     private LocalDateTime fechaRegistro;
 
     private String password;
-
+/*
     @OneToOne
     private Municipio municipio;
 
-    /*
+ */
+
+
     @ManyToOne
     @JoinColumn(name = "id_municipio", nullable = false, foreignKey = @ForeignKey(name = "FK_cliente_municipio"))
     private Municipio municipio;
 
-     */
+
 }

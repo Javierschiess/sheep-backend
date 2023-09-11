@@ -122,6 +122,18 @@ public class ProductoController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    @GetMapping("/totalProductos")
+    public ResponseEntity<Long> getTotalProduct()throws Exception{
+    long  totalProductos = service.getTotalProduct();
+    return new ResponseEntity<>(totalProductos, HttpStatus.OK);
+    }
+
+    @GetMapping("/totalProductos24")
+    public ResponseEntity<Long> totalProductos24()throws Exception{
+     long totalProductos24 = service.productos24();
+     return new ResponseEntity<>(totalProductos24, HttpStatus.OK);
+    }
+
 
 
 

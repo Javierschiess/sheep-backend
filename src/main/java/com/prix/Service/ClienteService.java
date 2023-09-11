@@ -32,10 +32,10 @@ public class ClienteService extends CRUDImpl<Cliente, String> {
     protected IGenericRepo<Cliente, String> getRepo() {
         return repo;
     }
+
     public Cliente registrarCliente(Cliente cliente)throws Exception{
         UserRepresentation userRepresentacion = new UserRepresentation();
         CredentialRepresentation credencial = new CredentialRepresentation();
-
 
         userRepresentacion.setUsername(cliente.getEmail());
         userRepresentacion.setEnabled(true);
@@ -56,6 +56,14 @@ public class ClienteService extends CRUDImpl<Cliente, String> {
 
         return repo.save(cliente);
 
+    }
+
+    public long totalClientes()throws Exception{
+        return repo.totalClientes();
+    }
+
+    public long totalClientes24()throws Exception{
+        return repo.totalClientes24();
     }
 
 }

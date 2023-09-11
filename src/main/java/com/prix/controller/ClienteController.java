@@ -63,4 +63,16 @@ public class ClienteController {
         return new ResponseEntity<>(dto, HttpStatus.OK);
     }
 
+    @GetMapping("/totalClientes")
+    public ResponseEntity<Long> totalClientes()throws Exception{
+        long total = service.totalClientes();
+        return new ResponseEntity<>(total, HttpStatus.OK);
+    }
+
+    @GetMapping("/totalClientes24")
+    public ResponseEntity<Long> totalClientes24()throws Exception{
+        long total = service.totalClientes24();
+        return new ResponseEntity<>(total, HttpStatus.OK);
+    }
+
 }

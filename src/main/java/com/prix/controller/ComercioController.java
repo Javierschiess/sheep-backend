@@ -65,4 +65,16 @@ public class ComercioController {
         Comercio come = service.modificar(comercio);
         return new ResponseEntity<>(dto, HttpStatus.OK);
     }*/
+
+    @GetMapping("/totalComercios")
+    public ResponseEntity<Long> totalComercios()throws Exception{
+        long total = service.totalComercios();
+        return new ResponseEntity<>(total, HttpStatus.OK);
+    }
+
+    @GetMapping("/totalComercios24")
+    public ResponseEntity<Long> totalComercios24()throws Exception{
+        long total = service.totalComercios24();
+        return new ResponseEntity<>(total, HttpStatus.OK);
+    }
 }

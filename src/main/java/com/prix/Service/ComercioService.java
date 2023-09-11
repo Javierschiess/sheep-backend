@@ -64,4 +64,12 @@ public class ComercioService extends CRUDImpl<Comercio, String> {
         return repo.save(comercio);
     }
 
+    public long totalComercios()throws Exception{
+        return repo.totalComercios();
+    }
+
+    public long totalComercios24()throws Exception{
+        return repo.totalComercios24();
+    }
+
 }
