@@ -55,7 +55,6 @@ public class ProductoService extends CRUDImpl<Producto, String> {
         return repo.findAllByMunicipioIdMunicipioAndNombreContainingIgnoreCase(idMunicipio, nombre);
 
     }
-
    */
 
    public List<Producto> listarPorComercio(String idComercio)throws Exception{

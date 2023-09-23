@@ -47,6 +47,4 @@ public class KeycloakAdminClient {
         return bCryptPasswordEncoder;
     }
 
-
-
 }

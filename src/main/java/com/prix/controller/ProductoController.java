@@ -23,7 +23,6 @@ public class ProductoController {
 
     private final ProductoService service;
 
-
     private final ModelMapper mapper;
 
     public ProductoController(ProductoService service, ModelMapper mapper) {
@@ -50,8 +49,6 @@ public class ProductoController {
         return new ResponseEntity<>(dto, HttpStatus.OK);
     }
 
-
-
     @PostMapping
     public ResponseEntity<ProductoDTO> registrar(@RequestBody ProductoDTO dto)throws Exception{
         Producto producto = mapper.map(dto, Producto.class);
@@ -71,7 +68,7 @@ public class ProductoController {
         producto.setDescripcion(dto.getDescripcion());
         producto.setFoto(dto.getFoto());
         producto.setPrecio(dto.getPrecio());
-        producto.setCategoria(dto.getCategoria());
+        //producto.setCategoria(dto.getCategoria());
 
         Producto product = service.modificar(producto);
         return new ResponseEntity<>(dto, HttpStatus.OK);
@@ -114,8 +111,6 @@ public class ProductoController {
      return new ResponseEntity<>(lista, HttpStatus.OK);
     }
 
-
-
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar( @PathVariable String id)throws Exception{
         service.eliminar(id);
@@ -133,9 +128,5 @@ public class ProductoController {
      long totalProductos24 = service.productos24();
      return new ResponseEntity<>(totalProductos24, HttpStatus.OK);
     }
-
-
-
-
 
 }

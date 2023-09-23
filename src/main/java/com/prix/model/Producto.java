@@ -30,11 +30,11 @@ public class Producto {
 
     private LocalDateTime fechaRegistro;
 
-    private String categoria;
-
     private Integer rating;
 
     private String municipio;
+
+    private String categoria;
 
     @ManyToOne
     @JoinColumn(name = "id_comercio",  foreignKey = @ForeignKey(name = "FK_producto_comerio"))
