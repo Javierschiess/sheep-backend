@@ -1,10 +1,7 @@
 package com.prix.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.UuidGenerator;
 
 import java.util.List;
@@ -22,8 +19,10 @@ public class Departamento {
     @Column(name = "id_departamento")
     private String idDepartamento;
 
+    @Column(name = "nombre", length = 50, nullable = false)
     private String nombre;
 
+    @Column(name = "descripcion", length = 150)
     private String descripcion;
 
     @OneToMany(mappedBy = "departamento", cascade = CascadeType.ALL, fetch = FetchType.EAGER)

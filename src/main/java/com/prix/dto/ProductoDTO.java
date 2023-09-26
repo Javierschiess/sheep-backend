@@ -23,11 +23,11 @@ public class ProductoDTO {
 
     private LocalDateTime fechaRegistro;
 
-    private String categoria;
+    private CategoriaDTO categoria;
 
     private ComercioDTO comercio;
 
-    private String estado;
+    private EstadoDTO estado;
 
     private Integer rating;
 

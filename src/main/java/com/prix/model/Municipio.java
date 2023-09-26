@@ -18,8 +18,10 @@ public class Municipio {
     @Column(name = "id_municipio")
     private String idMunicipio;
 
+    @Column(name = "nombre", length = 50, nullable = false)
     private String nombre;
 
+    @Column(name = "descripcion", length = 150)
     private String Descripcion;
 
     @ManyToOne

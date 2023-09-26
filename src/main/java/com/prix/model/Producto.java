@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.CurrentTimestamp;
 import org.hibernate.annotations.UuidGenerator;
 
 import java.time.LocalDateTime;
@@ -20,26 +21,38 @@ public class Producto {
     @Column(name = "id_producto")
     private String idProducto;
 
+    @Column(name = "nombre", length = 50, nullable = false)
     private String nombre;
 
+    @Column(name = "precio", length = 10, nullable = false)
     private Float precio;
 
+    @Column(name = "foto", length = 150)
     private String foto;
 
+    @Column(name = "descripcion", length = 150)
     private String descripcion;
 
+    @CurrentTimestamp
+    @Column(name = "fecha_registro", length = 15)
     private LocalDateTime fechaRegistro;
 
+    @Column(name = "clasificacion", length = 25)
     private Integer rating;
 
+    @Column(name = "municipio", length = 50, nullable = false)
     private String municipio;
 
-    private String categoria;
+    @ManyToOne
+    @JoinColumn(name = "id_Categoria", foreignKey = @ForeignKey(name = "FK_producto_categoria"))
+    private Categoria categoria;
 
     @ManyToOne
     @JoinColumn(name = "id_comercio",  foreignKey = @ForeignKey(name = "FK_producto_comerio"))
     private Comercio comercio;
 
-    private String estado;
+    @ManyToOne
+    @JoinColumn(name = "id_estado", foreignKey = @ForeignKey(name = "FK_producto_estado"))
+    private Estado estado;
 
 }

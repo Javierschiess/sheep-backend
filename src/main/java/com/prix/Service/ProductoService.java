@@ -36,7 +36,6 @@ public class ProductoService extends CRUDImpl<Producto, String> {
     public Producto registrarProducto(Producto producto) throws Exception {
         Optional<Comercio> comercio = comercioRepo.findById(producto.getComercio().getIdComercio());
         producto.setMunicipio(comercio.get().getMunicipio());
-
         producto.setFechaRegistro(LocalDateTime.now());
         return repo.save(producto);
     }

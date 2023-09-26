@@ -51,6 +51,7 @@ public class ProductoController {
 
     @PostMapping
     public ResponseEntity<ProductoDTO> registrar(@RequestBody ProductoDTO dto)throws Exception{
+        System.out.println(dto);
         Producto producto = mapper.map(dto, Producto.class);
         Producto product = service.registrarProducto(producto);
         return new ResponseEntity<>(dto, HttpStatus.CREATED);
