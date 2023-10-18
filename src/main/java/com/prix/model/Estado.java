@@ -19,6 +19,6 @@ public class Estado {
     @Column(name = "id_estado")
     private String idEstado;
 
-    @Column(name = "nombre",length = 50, nullable = false)
+    @Column(name = "nombre",length = 50)
     private String nombre;
 }

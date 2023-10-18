@@ -13,6 +13,7 @@ public interface IProductoRepo extends IGenericRepo<Producto, String> {
 
    List<Producto> findAllByComercioIdComercio(String idComercio);
 
+
    List<Producto> findAllByMunicipio(String idMunicipio);
 
    @Query(value = "SELECT COUNT (*) FROM Producto ", nativeQuery = true)

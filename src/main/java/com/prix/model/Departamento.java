@@ -19,7 +19,7 @@ public class Departamento {
     @Column(name = "id_departamento")
     private String idDepartamento;
 
-    @Column(name = "nombre", length = 50, nullable = false)
+    @Column(name = "nombre", length = 50)
     private String nombre;
 
     @Column(name = "descripcion", length = 150)

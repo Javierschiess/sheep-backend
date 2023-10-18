@@ -19,10 +19,10 @@ public class Cliente {
     @Column(name = "id_cliente")
     private String idCliente;
 
-    @Column(name = "nombres", length = 25, nullable = false)
+    @Column(name = "nombres", length = 25)
     private String nombres;
 
-    @Column(name = "apellidos", length = 50, nullable = false)
+    @Column(name = "apellidos", length = 50)
     private String apellidos;
 
     @Column(name = "correo", length = 50)
@@ -35,11 +35,11 @@ public class Cliente {
     @Column(name = "fecha_registro", length = 50)
     private LocalDateTime fechaRegistro;
 
-    @Column(name = "contraseña", length = 75, nullable = false)
+    @Column(name = "contraseña", length = 75)
     private String password;
 
     @ManyToOne
-    @JoinColumn(name = "id_municipio", nullable = false, foreignKey = @ForeignKey(name = "FK_cliente_municipio"))
+    @JoinColumn(name = "id_municipio", foreignKey = @ForeignKey(name = "FK_cliente_municipio"))
     private Municipio municipio;
 
 

@@ -4,11 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.hibernate.annotations.UuidGenerator;
-import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Setter
@@ -19,7 +16,7 @@ public class Comercio {
 
     @Id
     //@UuidGenerator
-    @Column(name = "id_comercio", nullable = false)
+    @Column(name = "id_comercio")
     private String idComercio;
 
     @Column(name = "nombre", length = 75)
@@ -34,10 +31,10 @@ public class Comercio {
     @Column(name = "correo", length = 50)
     private String email;
 
-    @Column(name = "usuario",nullable = false,  length = 70)
+    @Column(name = "usuario", length = 70)
     private String username;
 
-    @Column(name = "contraseña", nullable = false, length = 75)
+    @Column(name = "contraseña", length = 75)
     private String password;
 
     @Column(name = "fecha_registro", length = 50)

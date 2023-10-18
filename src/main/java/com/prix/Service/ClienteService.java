@@ -55,7 +55,6 @@ public class ClienteService extends CRUDImpl<Cliente, String> {
         cliente.setPassword(pass);
 
         return repo.save(cliente);
-
     }
 
     public long totalClientes()throws Exception{

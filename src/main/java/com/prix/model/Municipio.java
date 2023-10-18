@@ -18,14 +18,14 @@ public class Municipio {
     @Column(name = "id_municipio")
     private String idMunicipio;
 
-    @Column(name = "nombre", length = 50, nullable = false)
+    @Column(name = "nombre", length = 50)
     private String nombre;
 
     @Column(name = "descripcion", length = 150)
     private String Descripcion;
 
     @ManyToOne
-    @JoinColumn(name = "id_departamento", nullable = false, foreignKey = @ForeignKey(name = "FK_municipio_departamento"))
+    @JoinColumn(name = "id_departamento", foreignKey = @ForeignKey(name = "FK_municipio_departamento"))
     private Departamento departamento;
 
 

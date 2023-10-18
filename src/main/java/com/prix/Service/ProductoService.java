@@ -1,17 +1,12 @@
 package com.prix.Service;
 
-import com.prix.model.Cliente;
-import com.prix.model.Comercio;
-import com.prix.model.Municipio;
-import com.prix.model.Producto;
-import com.prix.repo.IClienteRepo;
-import com.prix.repo.IComercioRepo;
-import com.prix.repo.IGenericRepo;
-import com.prix.repo.IProductoRepo;
+import com.prix.model.*;
+import com.prix.repo.*;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -19,13 +14,22 @@ public class ProductoService extends CRUDImpl<Producto, String> {
 
     private final IProductoRepo repo;
 
+    private final ICategoriaRepo categoriaRepo;
+
     private final IComercioRepo comercioRepo;
+
+    private final IEstadoRepo estadoRepo;
     private final IClienteRepo clienteRepo;
 
-    public ProductoService(IProductoRepo repo, IComercioRepo comercioRepo, IClienteRepo clienteRepo) {
+    private final CloudinaryService cloudinaryService;
+
+    public ProductoService(IProductoRepo repo, ICategoriaRepo categoriaRepo, IComercioRepo comercioRepo, IEstadoRepo estadoRepo, IClienteRepo clienteRepo, CloudinaryService cloudinaryService) {
         this.repo = repo;
+        this.categoriaRepo = categoriaRepo;
         this.comercioRepo = comercioRepo;
+        this.estadoRepo = estadoRepo;
         this.clienteRepo = clienteRepo;
+        this.cloudinaryService = cloudinaryService;
     }
 
     @Override
@@ -33,10 +37,26 @@ public class ProductoService extends CRUDImpl<Producto, String> {
         return repo;
     }
 
-    public Producto registrarProducto(Producto producto) throws Exception {
-        Optional<Comercio> comercio = comercioRepo.findById(producto.getComercio().getIdComercio());
+    public Producto registrarProducto(String nombre, Float precio, MultipartFile multipartFile,
+                                      String descripcion, String idCategoria, String idComercio,
+                                      String idEstado, int rating) throws Exception {
+        Optional<Comercio> comercio = comercioRepo.findById(idComercio);
+        Optional<Estado> estado  = estadoRepo.findById(idEstado);
+        Optional<Categoria> categoria = categoriaRepo.findById(idCategoria);
+        Producto producto = new Producto();
+        producto.setNombre(nombre);
+        producto.setPrecio(precio);
+        producto.setDescripcion(descripcion);
+        producto.setCategoria(categoria.get());
+        producto.setRating(rating);
+        producto.setEstado(estado.get());
+        producto.setComercio(comercio.get());
         producto.setMunicipio(comercio.get().getMunicipio());
-        producto.setFechaRegistro(LocalDateTime.now());
+
+        Map result = cloudinaryService.upload(multipartFile);
+        String urlImage = (String) result.get("url");
+
+        producto.setFoto(urlImage);
         return repo.save(producto);
     }
 
@@ -60,7 +80,7 @@ public class ProductoService extends CRUDImpl<Producto, String> {
         return repo.findAllByComercioIdComercio(idComercio);
     }
 
-    public List<Producto> listarPorMunicipio(String idCliente, String idMunicipio)throws Exception{
+    public List<Producto>listarPorMunicipio(String idCliente, String idMunicipio)throws Exception{
 
         if (idMunicipio.isEmpty()) {
 
@@ -81,7 +101,5 @@ public class ProductoService extends CRUDImpl<Producto, String> {
     public long productos24()throws Exception{
        return repo.productos24();
     }
-
-
 
 }

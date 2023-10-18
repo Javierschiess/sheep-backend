@@ -1,18 +1,14 @@
 package com.prix.controller;
 
 import com.prix.Service.ProductoService;
-import com.prix.dto.ClienteDTO;
 import com.prix.dto.ProductoDTO;
 import com.prix.exception.ModelNotFoundException;
-import com.prix.model.Cliente;
-import com.prix.model.Municipio;
 import com.prix.model.Producto;
-import com.prix.repo.IClienteRepo;
-import jakarta.annotation.security.RolesAllowed;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -44,16 +40,21 @@ public class ProductoController {
         if (producto == null){
             throw new ModelNotFoundException("ID NO ENCONTRADO " + id);
         }
-
         ProductoDTO dto = mapper.map(producto, ProductoDTO.class);
         return new ResponseEntity<>(dto, HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<ProductoDTO> registrar(@RequestBody ProductoDTO dto)throws Exception{
-        System.out.println(dto);
-        Producto producto = mapper.map(dto, Producto.class);
-        Producto product = service.registrarProducto(producto);
+    public ResponseEntity<ProductoDTO> registrar(@RequestParam String nombre, @RequestParam String descripcion,
+                                                        @RequestParam Float precio, @RequestParam MultipartFile multipartFile,
+                                                        @RequestParam String categoria, @RequestParam String comercio,
+                                                        @RequestParam String estado, @RequestParam int rating
+                                                         )throws Exception{
+        Producto product = service.registrarProducto(nombre, precio, multipartFile, descripcion,
+                                                    categoria, comercio, estado, rating);
+
+        ProductoDTO dto = mapper.map(product, ProductoDTO.class);
+
         return new ResponseEntity<>(dto, HttpStatus.CREATED);
     }
 
